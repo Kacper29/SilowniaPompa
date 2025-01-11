@@ -1,0 +1,80 @@
+<databaseChangeLog
+        xmlns="http://www.liquibase.org/xml/ns/dbchangelog"
+        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+        xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-3.4.xsd">
+
+    <changeSet id="1" author="Emil Abramowicz">
+
+        <createTable tableName="app_user">
+            <column name="id" type="BIGINT" autoIncrement="true">
+                <constraints primaryKey="true" nullable="false"/>
+            </column>
+            <column name="email" type="VARCHAR(255)">
+                <constraints nullable="false" unique="true"/>
+            </column>
+            <column name="username" type="VARCHAR(255)">
+                <constraints nullable="false"/>
+            </column>
+            <column name="password" type="VARCHAR(255)">
+                <constraints nullable="false"/>
+            </column>
+            <column name="role" type="VARCHAR(255)">
+                <constraints nullable="false"/>
+            </column>
+        </createTable>
+    </changeSet>
+</databaseChangeLog>
+
+        <!--        <createTable tableName="user_info">-->
+        <!--            <column name="id" type="BIGINT" autoIncrement="true">-->
+        <!--                <constraints primaryKey="true" nullable="false"/>-->
+        <!--            </column>-->
+        <!--            <column name="event_name" type="VARCHAR(255)">-->
+        <!--                <constraints nullable="false"/>-->
+        <!--            </column>-->
+        <!--            <column name="lottery_date" type="DATE"/>-->
+        <!--            <column name="status" type="VARCHAR(255)">-->
+        <!--                <constraints nullable="false"/>-->
+        <!--            </column>-->
+        <!--            <column name="city" type="VARCHAR(255)">-->
+        <!--                <constraints nullable="false"/>-->
+        <!--            </column>-->
+        <!--            <column name="app_user_id" type="BIGINT">-->
+        <!--                <constraints nullable="false"/>-->
+        <!--            </column>-->
+        <!--        </createTable>-->
+
+
+        <!--        <createTable tableName="winner">-->
+        <!--            <column name="id" type="BIGINT" autoIncrement="true">-->
+        <!--                <constraints primaryKey="true" nullable="false"/>-->
+        <!--            </column>-->
+        <!--            <column name="participant_id" type="BIGINT">-->
+        <!--                <constraints nullable="false"/>-->
+        <!--            </column>-->
+        <!--            <column name="voucher_id" type="BIGINT">-->
+        <!--                <constraints nullable="false"/>-->
+        <!--            </column>-->
+        <!--            <column name="lottery_id" type="BIGINT">-->
+        <!--                <constraints nullable="false"/>-->
+        <!--            </column>-->
+        <!--        </createTable>-->
+
+        <!--        <addForeignKeyConstraint baseTableName="participant" baseColumnNames="lottery_id"-->
+        <!--                                 constraintName="FK_participant_lottery"-->
+        <!--                                 referencedTableName="lottery" referencedColumnNames="id"/>-->
+        <!--        <addForeignKeyConstraint baseTableName="voucher" baseColumnNames="lottery_id"-->
+        <!--                                 constraintName="FK_voucher_lottery"-->
+        <!--                                 referencedTableName="lottery" referencedColumnNames="id"/>-->
+        <!--        <addForeignKeyConstraint baseTableName="winner" baseColumnNames="participant_id"-->
+        <!--                                 constraintName="FK_winner_participant"-->
+        <!--                                 referencedTableName="participant" referencedColumnNames="id"/>-->
+        <!--        <addForeignKeyConstraint baseTableName="winner" baseColumnNames="voucher_id"-->
+        <!--                                 constraintName="FK_winner_voucher"-->
+        <!--                                 referencedTableName="voucher" referencedColumnNames="id"/>-->
+        <!--        <addForeignKeyConstraint baseTableName="winner" baseColumnNames="lottery_id"-->
+        <!--                                 constraintName="FK_winner_lottery"-->
+        <!--                                 referencedTableName="lottery" referencedColumnNames="id"/>-->
+        <!--        <addForeignKeyConstraint baseTableName="password_reset_token" baseColumnNames="user_id"-->
+        <!--                                 constraintName="FK_token_user"-->
+        <!--                                 referencedTableName="app_user" referencedColumnNames="id"/>-->

@@ -3,12 +3,18 @@ package com.AbAmAk.Pompa.entity;
 import jakarta.persistence.*;
 import lombok.Data;
 import org.springframework.data.annotation.Id;
+import org.springframework.security.core.GrantedAuthority;
+import org.springframework.security.core.authority.SimpleGrantedAuthority;
+
+import java.util.Collection;
+import java.util.List;
 
 @Data
 @Entity
 @Table(name = "app_user")
 public class AppUser {
-    public AppUser() {}
+    public AppUser() {
+    }
 
     @jakarta.persistence.Id
     @Id
@@ -28,5 +34,6 @@ public class AppUser {
     @Enumerated(EnumType.STRING)
     @Column(name = "role")
     Role role;
+
 }
 

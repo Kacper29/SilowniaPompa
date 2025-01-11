@@ -2,7 +2,6 @@ package com.AbAmAk.Pompa.controller;
 
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 
 
@@ -10,9 +9,15 @@ import org.springframework.web.bind.annotation.RequestMapping;
 @RequestMapping
 public class AppController {
 
-    @GetMapping("{id}")
-    String main_page(@PathVariable("id") final int id) {
+    @GetMapping({"/strona_glowna"})
+    String main_page() {
         return "strona_glowna";
     }
+
+    @GetMapping("/")
+    public String homePage() {
+        return "home"; // Return the home.html page
+    }
+
 
 }
