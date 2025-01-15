@@ -1,13 +1,9 @@
 package com.AbAmAk.Pompa.entity;
 
+import com.AbAmAk.Pompa.entity.enums.Role;
 import jakarta.persistence.*;
 import lombok.Data;
 import org.springframework.data.annotation.Id;
-import org.springframework.security.core.GrantedAuthority;
-import org.springframework.security.core.authority.SimpleGrantedAuthority;
-
-import java.util.Collection;
-import java.util.List;
 
 @Data
 @Entity

@@ -24,7 +24,7 @@ public class CustomUserDetailsService implements UserDetailsService {
         AppUser appUser = appUserService.findUserByUsername(username);
 
         return User.builder()
-                .username(appUser.getEmail())
+                .username(appUser.getUsername())
                 .password(appUser.getPassword())
                 .roles(appUser.getRole().toString())
                 .build();

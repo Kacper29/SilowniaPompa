@@ -2,6 +2,7 @@ package com.AbAmAk.Pompa.controller;
 
 import com.AbAmAk.Pompa.service.LoginService;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.security.core.Authentication;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -21,19 +22,16 @@ public class LoginController {
     @PostMapping("/login")
     public String login(@RequestParam String username, @RequestParam String password, Model model) {
         if (loginService.login(username, password)) {
-            return "redirect:/strona_glowna";
+            model.addAttribute("username", username);
+            return "strona_glowna";
         }
-        model.addAttribute("error", "Invalid username or password");
+        model.addAttribute("incorrect_password", "Invalid username or password");
         return "login";
     }
+
 
     @GetMapping("/login")
     public String loginPage() {
         return "login"; // Your login.html page
-    }
-
-    @GetMapping("/register")
-    public String registerPage() {
-        return "register"; // Your register.html page
     }
 }

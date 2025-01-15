@@ -13,27 +13,23 @@
 <body>
 <header>
     <h1>Siłownia Pompa</h1>
+    <h1 th:if="${username != null}">Witaj, <span th:text="${username}"></span>!</h1>
     <p>Twoje miejsce do treningu, zdrowia i siły!</p>
 </header>
 
-<!-- Nawigacja -->
 <nav>
     <a href="#o-nas">O nas</a>
     <a href="#oferta">Oferta</a>
     <a href="#galeria">Galeria</a>
     <a href="#kontakt">Kontakt</a>
     <a th:href="@{/login}"> Zaloguj się</a>
-    <a> Zarejestruj się</a>
+    <a th:href="@{/register}"> Zarejestruj się</a>
 </nav>
-
-<!-- Sekcja główna z grafiką -->
 <div class="hero">
     Witaj w Siłowni Pompa!
 </div>
 
-<!-- Główna zawartość strony -->
 <div class="container">
-    <!-- Sekcja "O nas" -->
     <section id="o-nas" class="section">
         <h2>O nas</h2>
         <p>Siłownia Pompa to nowoczesny klub fitness, który pomoże Ci osiągnąć Twoje cele. Posiadamy nowoczesny sprzęt, wykwalifikowanych trenerów i szeroką ofertę zajęć grupowych.</p>

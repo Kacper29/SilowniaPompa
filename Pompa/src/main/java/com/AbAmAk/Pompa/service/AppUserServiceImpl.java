@@ -1,7 +1,9 @@
 package com.AbAmAk.Pompa.service;
 
 import com.AbAmAk.Pompa.entity.AppUser;
+import com.AbAmAk.Pompa.entity.exceptions.UniqueUserEmailException;
 import com.AbAmAk.Pompa.repository.AppUserRepository;
+import org.springframework.dao.DataIntegrityViolationException;
 import org.springframework.security.core.userdetails.UsernameNotFoundException;
 import org.springframework.stereotype.Service;
 
@@ -19,7 +21,12 @@ public class AppUserServiceImpl implements AppUserService {
                 .orElseThrow(() -> new UsernameNotFoundException("User not found"));
     }
 
-    public void saveUser(AppUser user) {
-        appUserRepository.save(user);
+    public boolean saveUser(AppUser user) {
+        try {
+            appUserRepository.save(user);
+        } catch (DataIntegrityViolationException e) {
+            throw new UniqueUserEmailException("Email already exists in DB");
+        }
+        return true;
     }
 }
