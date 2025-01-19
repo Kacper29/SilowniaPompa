@@ -11,6 +11,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 @RequestMapping
 public class AppController {
 
+    @Deprecated
     @GetMapping("/strona_glowna")
     public String home(Model model, Authentication authentication) {
         if (authentication != null) {
@@ -22,9 +23,15 @@ public class AppController {
         return "strona_glowna";
     }
 
-    @GetMapping("/")
-    public String homePage() {
-        return "home"; // Return the home.html page
+    @GetMapping("/account")
+    public String accountHi(Model model, Authentication authentication) {
+        if (authentication != null) {
+            String username = authentication.getName();
+            model.addAttribute("username", username);
+        } else {
+            model.addAttribute("message", "Welcome, Guest!");
+        }
+        return "account";
     }
 
 

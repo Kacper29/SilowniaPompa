@@ -31,7 +31,7 @@ public class SecurityConfig {
                 )
                 .formLogin(formLogin -> formLogin
                         .loginPage("/login")
-                        .defaultSuccessUrl("/strona_glowna")
+                        .defaultSuccessUrl("/account")
                         .loginProcessingUrl("/login")
                         .permitAll()
                 )
