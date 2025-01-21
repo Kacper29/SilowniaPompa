@@ -28,7 +28,6 @@ public class LoginController {
         return "login";
     }
 
-
     @GetMapping("/login")
     public String loginPage() {
         return "login"; // Your login.html page
